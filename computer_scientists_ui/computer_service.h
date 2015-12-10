@@ -33,9 +33,6 @@ public:
     // tengir saman tölvuid og scientist id
     void add_connection(int sci_id, int comp_id);
 
-    // Les innslátt notanda fyrir nýja tölvu
-    void read_input();
-
     /* Skilar scientists tengdum tölvu
      * breytan id inniheldur einstakt id-númer tölvunnar
      * sem þeir eru tengdir
@@ -44,6 +41,8 @@ public:
 
     // Eyðir tengingu scientists við tölvu
     void remove_connection(int scient_id, int comp_id);
+
+    void add_computer_db(Computers c);
 
 
 private:

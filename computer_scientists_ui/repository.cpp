@@ -24,6 +24,11 @@ Repository::Repository()
         query.exec(constants::CREATE_OWNERS_TABLE);
 }
 
+QSqlDatabase Repository::get_db()
+{
+    return db;
+}
+
 vector<Scientist> Repository::open_scientist_db(QString sql_command)
 {
     vector<Scientist> data;
@@ -74,39 +79,6 @@ vector<Computers> Repository::open_computer_db(QString sql_command)
     return data;    
 }
 
-void Repository::add_scientist(Scientist s)
-{
-    QSqlQuery query(db);
-    query.prepare(constants::INSERT_FORM);
-    query.bindValue(":first", QString::fromStdString(s.get_first()));
-    query.bindValue(":last", QString::fromStdString(s.get_last()));
-    query.bindValue(":b", s.get_birth());
-    query.bindValue(":d", s.get_death());
-    query.bindValue(":g", s.get_gender());
-    query.bindValue(":a", s.get_living());
-    query.bindValue(":act", 1);
-    query.exec();
-
-}
-
-void Repository::add_computer(Computers c)
-{
-    QSqlQuery query(db);
-    query.prepare(constants::INSERT_COMPUTER);
-    query.bindValue(":name", QString::fromStdString(c.get_name()));
-    if (c.get_year())
-    {
-        query.bindValue(":by", c.get_year());
-    }
-    else
-    {
-        query.bindValue(":by", "NULL");
-    }
-    query.bindValue(":type", c.get_type());
-    query.bindValue(":built", c.get_built());
-    query.exec();
-}
-
 vector<string> Repository::connected(QString command, QString column)
 {
     vector<string> data;
@@ -138,6 +110,11 @@ vector<Scientist> Repository::connected_to_delete(QString command)
         data.push_back(temp);
     }
     return data;
+}
+
+void Repository::add_to_db(QSqlQuery query)
+{
+    query.exec();
 }
 
 void Repository::edit_remove(QString command)

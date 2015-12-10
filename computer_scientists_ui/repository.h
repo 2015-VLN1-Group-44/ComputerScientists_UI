@@ -20,12 +20,9 @@ public:
     /* Tengist sql grunni og sækir scientista/tölvur
      * sorterað og filterað byggt á skipun: sql_command
      */
+    QSqlDatabase get_db();
     vector<Scientist> open_scientist_db(QString sql_command);
     vector<Computers> open_computer_db(QString sql_command);
-
-    // Bætir inn entry í grunninn
-    void add_scientist(Scientist s);
-    void add_computer(Computers c);
 
     // Sækir nöfn scientista/tölva og skilar sem vektor
     vector<string> connected(QString command, QString column);
@@ -36,6 +33,7 @@ public:
     // Skilar vektor einungis með eftirnafni og id
     vector<Scientist> connected_to_delete(QString command);
 
+    void add_to_db(QSqlQuery query);
 
 private:
     QSqlDatabase db;

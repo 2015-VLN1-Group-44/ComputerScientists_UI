@@ -32,13 +32,11 @@ public:
      */
     void edit_entry(QString column, QString insert, int id);
 
-    // Les inn gögn frá notanda um nýjan scientist og skilar til grunnsins
-    void read_input();
-
     /* Tekur id scientista og skilar vektor af nöfnum tölva sem tengjast
      * honum
      */
     vector <string> connected_computers(int id);
+    void add_scientist(Scientist s);
     friend class Interface;
 
     // Fær id scientista og eyðir viðkomandi scientist úr grunni

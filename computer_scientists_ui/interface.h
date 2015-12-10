@@ -56,6 +56,9 @@ public:
     // Föll til að eyða tölvu/scientist
     bool edit_remove();
     bool edit_remove_comp();
+
+    void read_computer();
+    void read_scientist();
 private:
     Scientist_service scientist_service;
     Computer_service computer_service;

@@ -41,7 +41,7 @@ void Interface::start_menu()
         {
         case 1:
             clear_screen();
-            scientist_service.read_input();
+            read_scientist();
             clear_screen();
             break;
         case 2:
@@ -67,7 +67,7 @@ void Interface::start_menu()
             break;
         case 5:
             clear_screen();
-            computer_service.read_input();
+            read_computer();
             clear_screen();
             quit = false;
             break;
@@ -396,7 +396,7 @@ bool Interface::search_menu()
             adding = line[0];
             if (tolower(adding) == 'y')
             {
-                scientist_service.read_input();
+                read_scientist();
                 clear_screen();
                 exit = true;
                 legal_choice = true;
@@ -1047,4 +1047,139 @@ bool Interface::edit_remove_comp()
         return true;
     }
     return true;
+}
+
+void Interface::read_computer()
+{
+    string name;
+    bool built = false;
+    int year, ct;
+    char test;
+    cout << "Enter name: ";
+    cin.ignore();
+    getline(cin, name);
+    cout << "Was the computer built (y/n)?";
+    cin >> test;
+    if (test == 'y' || test == 'Y')
+    {
+        cout << "Enter year built: ";
+        cin >> year;
+        built = true;
+    }
+    else
+    {
+        year = 0;
+    }
+    cout << "Enter computer type (1 for mechanical, 2 for transistor, 3 for electronic): ";
+    cin >> ct;
+    Computers temp(name, year, built, ct);
+    computer_service.add_computer_db(temp);
+}
+
+void Interface::read_scientist()
+{
+    Scientist temp;
+    char cgender, answer;
+    string line;
+    QDate in_date, current;
+    current = QDate::currentDate(); // sækir daginn í dag í system-klukkuna
+    QString date;
+    bool valid_date, deceased, valid;
+    cout << "Input first name(s): ";
+    cin.ignore();                //varð að setja ignore til að miðjunafnið fari með. Ingvi
+    getline(cin, line);
+    temp.set_first(line);
+    cout << "Input last name: ";
+    getline(cin, line);
+    temp.set_last(line);
+
+    do
+    {
+        cout << "Input gender (M/F): ";
+        getline(cin, line);
+        cgender = line[0];
+        switch(tolower(cgender))
+        {
+            case 'm':
+                temp.set_gender(true);
+                valid = true;
+                break;
+            case 'f':
+                temp.set_gender(false);
+                valid = true;
+                break;
+            default:
+                cout << "Invalid gender. Please correct." << endl;
+                break;
+        }
+    } while (!valid);
+    do
+    {
+        cout << "Input date of birth (dd/mm/yyyy): ";
+        getline(cin, line);
+        date = QString::fromStdString(line);    // breytir innlestri í QString
+        in_date = QDate::fromString(date, constants::DATE_FORMAT);  // innlestur => dags.
+        valid_date = in_date.isValid();
+        if(!valid_date)
+        {
+            cout << "Date is not valid." << endl;
+        }
+        else if (current < in_date)
+        {
+            cout << "Date of birth after current date. Please correct" << endl;
+            valid_date = false;
+        }
+    } while (!valid_date);
+    temp.set_birth(in_date);
+
+    do
+    {
+        cout << "Is this person living (y/n)?" << endl;
+        getline(cin, line);
+        answer = line[0];
+        switch (tolower(answer))
+        {
+            case 'y':
+                deceased = false;
+                temp.set_living(true);
+            break;
+            case 'n':
+                deceased = true;
+            break;
+            default:
+            break;
+        }
+    } while ( !(tolower(answer) == 'y' || tolower(answer) == 'n'));
+    if (deceased)
+    {
+        cin.ignore();  // grípur newline á undan
+        do
+        {
+            cout << "Input date of death (dd/mm/yyyy): ";
+            getline(cin, line);
+            date = QString::fromStdString(line); // breytir innlestri í QString
+            in_date = QDate::fromString(date, constants::DATE_FORMAT); // breytir innlestri í dags.
+            valid_date = in_date.isValid();  // testar hvort dagsetning sé gild
+            if(!valid_date)
+            {
+                cout << "Date is not valid." << endl;
+            }
+            else if (in_date < temp.get_birth()) // fæðing ekki eftir dauða
+            {
+                cout << "Date of death before date of birth. Please correct." << endl;
+                valid_date = false;
+            }
+            else if (current < in_date)
+            {
+                cout << "Date of death after today's date. Please correct." << endl;
+                valid_date = false;
+            }
+        } while (!valid_date);
+    }
+    if (!deceased)
+    {
+        in_date.setDate(0, 0, 0);
+    }
+    temp.set_death(in_date);
+    scientist_service.add_scientist(temp);
 }
