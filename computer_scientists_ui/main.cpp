@@ -1,4 +1,6 @@
 #include "mainwindow.h"
+#include "scientist.h"
+#include "scientist_service.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

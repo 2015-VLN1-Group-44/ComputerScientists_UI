@@ -16,10 +16,16 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     repository.cpp \
-    scientist_service.cpp
+    scientist_service.cpp \
+    scientist.cpp \
+    computers.cpp \
+    computer_service.cpp
 
 HEADERS  += mainwindow.h \
     repository.h \
-    scientist_service.h
+    scientist_service.h \
+    scientist.h \
+    computers.h \
+    computer_service.h
 
 FORMS    += mainwindow.ui
