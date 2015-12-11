@@ -23,11 +23,14 @@ void MainWindow::display_all_scientists()
 
 void MainWindow::display_scientists(vector<Scientist> scientists)
 {
-    ui->list_scientists->clear();
+    ui->table_scientists->clear();
+    ui->table_scientists->setRowCount(scientists.size());
     for (unsigned int i = 0; i < scientists.size(); i++)
     {
         Scientist current = scientists[i];
-        ui->list_scientists->addItem(QString::fromStdString(current.get_last()));
+        QString name = QString::fromStdString(current.get_first() + " " + current.get_last());
+        qDebug() << name;
+        ui->table_scientists->setItem(i, 0, new QTableWidgetItem(name));
     }
 }
 
