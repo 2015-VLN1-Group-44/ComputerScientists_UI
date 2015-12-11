@@ -23,7 +23,6 @@ void MainWindow::display_all_scientists()
 
 void MainWindow::display_scientists(vector<Scientist> scientists)
 {
-    ui->table_scientists->clear();
     ui->table_scientists->setRowCount(scientists.size());
     for (unsigned int i = 0; i < scientists.size(); i++)
     {
