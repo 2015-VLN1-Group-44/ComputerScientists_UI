@@ -34,7 +34,6 @@ vector<Scientist> Repository::open_scientist_db(QString sql_command)
     vector<Scientist> data;
     QSqlQuery query(db);
     query.exec(sql_command);
-
     while (query.next())
     {
         string first, last;

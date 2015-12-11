@@ -26,6 +26,7 @@ HEADERS  += mainwindow.h \
     scientist_service.h \
     scientist.h \
     computers.h \
-    computer_service.h
+    computer_service.h \
+    constants.h
 
 FORMS    += mainwindow.ui
