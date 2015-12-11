@@ -29,7 +29,6 @@ void MainWindow::display_scientists(vector<Scientist> scientists)
     {
         Scientist current = scientists[i];
         QString name = QString::fromStdString(current.get_first() + " " + current.get_last());
-        qDebug() << name;
         ui->table_scientists->setItem(i, 0, new QTableWidgetItem(name));
     }
 }
