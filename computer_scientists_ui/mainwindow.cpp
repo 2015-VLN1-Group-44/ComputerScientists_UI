@@ -27,9 +27,9 @@ void MainWindow::display_scientists(vector<Scientist> scientists)
     for (unsigned int i = 0; i < scientists.size(); i++)
     {
         Scientist current = scientists[i];
-        QString name = QString::fromStdString(current.get_first() + " " + current.get_last());
-        QString dob = current.get_birth().toString();
-        QString dod = current.get_death().toString();
+        QString name = QString::fromStdString(current.get_last() + ", " + current.get_first());
+        QString dob = current.get_birth().toString(constants::IMPORT_DATE_FORMAT);
+        QString dod = current.get_death().toString(constants::IMPORT_DATE_FORMAT);
         ui->table_scientists->setItem(i, 0, new QTableWidgetItem(name));
         ui->table_scientists->setItem(i, 1, new QTableWidgetItem(dob));
         ui->table_scientists->setItem(i, 2, new QTableWidgetItem(dod));
