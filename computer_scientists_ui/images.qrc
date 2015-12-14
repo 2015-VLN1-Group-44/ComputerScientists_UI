@@ -1,2 +1,19 @@
-<RCC/>
-
+<RCC>
+    <qresource prefix="/img">
+        <file>../../../../Copy/VLN1_Haust 2015/Img/1_CharlesBabbage.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/2_EdsgerWDijkstra.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/3_AdeleGoldberg.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/4_Margaret_Hamilton.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/5_GraceBrewsterMurray.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/6_AdaLovelace.jpeg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/7_BjarneStroustrup.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/8_LinusBenedictTorvalds.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/9_AlanTuring.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/10_ScottAronson.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/11_HalAbelson.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/12_SergeAbiteboul.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/13_SamsonAbramsky.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/14_LeonardAdleman.jpg</file>
+        <file>../../../../Copy/VLN1_Haust 2015/Img/15_AlfredAho.jpg</file>
+    </qresource>
+</RCC>
