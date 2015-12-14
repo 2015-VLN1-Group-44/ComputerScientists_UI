@@ -5,6 +5,7 @@
 #include "scientist_service.h"
 #include "computer_service.h"
 #include <vector>
+#include "add_scientist.h"
 
 
 namespace Ui {
@@ -27,9 +28,9 @@ private slots:
 
     void on_search_computers_textChanged(const QString &arg1);
 
+    void on_add_scientist_button_clicked();
+
 private:
-
-
 
     Ui::MainWindow *ui;
     Scientist_service scientist_service;

@@ -106,3 +106,11 @@ void MainWindow::on_search_computers_textChanged(const QString &arg1)
     vector<Computers> computers = computer_service.search("name", arg1);
     display_computers(computers);
 }
+
+void MainWindow::on_add_scientist_button_clicked()
+{
+    Add_scientist *add_scientist;
+    add_scientist = new Add_scientist;
+    add_scientist->exec();
+
+}

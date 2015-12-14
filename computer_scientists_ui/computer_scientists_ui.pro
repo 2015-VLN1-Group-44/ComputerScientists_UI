@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     scientist_service.cpp \
     scientist.cpp \
     computers.cpp \
-    computer_service.cpp
+    computer_service.cpp \
+    add_scientist.cpp
 
 HEADERS  += mainwindow.h \
     repository.h \
@@ -27,6 +28,8 @@ HEADERS  += mainwindow.h \
     scientist.h \
     computers.h \
     computer_service.h \
-    constants.h
+    constants.h \
+    add_scientist.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    add_scientist.ui
