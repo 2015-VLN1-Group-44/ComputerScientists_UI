@@ -7,8 +7,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    display_all_scientists();
     display_all_computers();
+    display_all_scientists();
+
 }
 
 MainWindow::~MainWindow()
@@ -95,7 +96,13 @@ void MainWindow::display_computers(vector<Computers> computers)
 
 void MainWindow::on_search_scientist_textChanged(const QString &arg1)
 {
-    QString search_term = ui->search_scientist->text();
-    vector<Scientist> scientists = scientist_service.search(search_term, "lastname");
+    vector<Scientist> scientists = scientist_service.search(arg1, "lastname");
     display_scientists(scientists);
+}
+
+void MainWindow::on_search_computers_textChanged(const QString &arg1)
+{
+    // QString search_term = ui->search_computers->text();
+    vector<Computers> computers = computer_service.search("name", arg1);
+    display_computers(computers);
 }

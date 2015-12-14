@@ -25,6 +25,8 @@ public:
 private slots:
     void on_search_scientist_textChanged(const QString &arg1);
 
+    void on_search_computers_textChanged(const QString &arg1);
+
 private:
 
 
