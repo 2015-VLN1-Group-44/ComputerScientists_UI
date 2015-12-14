@@ -1,5 +1,14 @@
 <RCC>
-    <qresource prefix="/img">
+    <qresource prefix="/">
+        <file>Img/01_CharlesBabbage.jpg</file>
+        <file>Img/02_EdsgerWDijkstra.jpg</file>
+        <file>Img/03_AdeleGoldberg.jpg</file>
+        <file>Img/04_Margaret_Hamilton.jpg</file>
+        <file>Img/05_GraceBrewsterMurray.jpg</file>
+        <file>Img/06_AdaLovelace.jpeg</file>
+        <file>Img/07_BjarneStroustrup.jpg</file>
+        <file>Img/08_LinusBenedictTorvalds.jpg</file>
+        <file>Img/09_AlanTuring.jpg</file>
         <file>Img/10_ScottAronson.jpg</file>
         <file>Img/11_HalAbelson.jpg</file>
         <file>Img/12_SergeAbiteboul.jpg</file>
@@ -10,15 +19,6 @@
         <file>Img/17_GeneAmdahl.jpg</file>
         <file>Img/18_JohnVincentAtanasoff.jpg</file>
         <file>Img/19_AnitaBorg.jpg</file>
-        <file>Img/01_CharlesBabbage.jpg</file>
-        <file>Img/02_EdsgerWDijkstra.jpg</file>
-        <file>Img/03_AdeleGoldberg.jpg</file>
-        <file>Img/04_Margaret_Hamilton.jpg</file>
-        <file>Img/05_GraceBrewsterMurray.jpg</file>
-        <file>Img/06_AdaLovelace.jpeg</file>
-        <file>Img/07_BjarneStroustrup.jpg</file>
-        <file>Img/08_LinusBenedictTorvalds.jpg</file>
-        <file>Img/09_AlanTuring.jpg</file>
         <file>Img/20_CharlesBachman.jpg</file>
         <file>Img/21_RolandCarlBackhouse.jpg</file>
         <file>Img/22_JohnBackus.jpg</file>
