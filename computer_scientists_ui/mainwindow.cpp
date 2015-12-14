@@ -26,6 +26,7 @@ void MainWindow::display_all_scientists()
 void MainWindow::display_scientists(vector<Scientist> scientists)
 {
     ui->table_scientists->setRowCount(scientists.size());
+    ui->table_scientists->setSelectionBehavior(QAbstractItemView::SelectRows);
     for (unsigned int i = 0; i < scientists.size(); i++)
     {
         Scientist current = scientists[i];
@@ -41,11 +42,14 @@ void MainWindow::display_scientists(vector<Scientist> scientists)
         }
         QString dob = current.get_birth().toString(constants::IMPORT_DATE_FORMAT);
         QString dod = current.get_death().toString(constants::IMPORT_DATE_FORMAT);
+        QString id = QString::number(current.get_id());
         ui->table_scientists->setItem(i, 0, new QTableWidgetItem(name));
         ui->table_scientists->setItem(i, 1, new QTableWidgetItem(gender));
         ui->table_scientists->setItem(i, 2, new QTableWidgetItem(dob));
         ui->table_scientists->setItem(i, 3, new QTableWidgetItem(dod));
+        ui->table_scientists->setItem(i, 4, new QTableWidgetItem(id));
     }
+    ui->table_scientists->setColumnHidden(4, true);
     ui->table_scientists->resizeColumnsToContents();
 }
 
@@ -58,12 +62,14 @@ void MainWindow::display_all_computers()
 void MainWindow::display_computers(vector<Computers> computers)
 {
     ui->table_computers->setRowCount(computers.size());
+    ui->table_computers->setSelectionBehavior(QAbstractItemView::SelectRows);
     for (unsigned int i = 0; i < computers.size(); i++)
     {
         Computers current = computers[i];
         QString name = QString::fromStdString(current.get_name());
         QString type = "";
         QString was_built = "";
+        QString id = QString::number(current.get_id());
         int type_nr = static_cast<int>(current.get_type());
         if (type_nr == 1)
         {
@@ -88,8 +94,9 @@ void MainWindow::display_computers(vector<Computers> computers)
         ui->table_computers->setItem(i, 1, new QTableWidgetItem(type));
         ui->table_computers->setItem(i, 2, new QTableWidgetItem(QString::number(year)));
         ui->table_computers->setItem(i, 3, new QTableWidgetItem(was_built));
+        ui->table_computers->setItem(i, 4, new QTableWidgetItem(id));
     }
-
+    ui->table_computers->setColumnHidden(4, true);
 }
 
 
@@ -111,6 +118,10 @@ void MainWindow::on_add_scientist_button_clicked()
 {
     Add_scientist *add_scientist;
     add_scientist = new Add_scientist;
-    add_scientist->exec();
+    int success = add_scientist->exec();
+    if (success == 0)
+    {
+        display_all_scientists();
+    }
 
 }
