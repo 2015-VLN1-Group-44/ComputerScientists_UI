@@ -33,3 +33,6 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui \
     add_scientist.ui
+
+RESOURCES += \
+    images.qrc
