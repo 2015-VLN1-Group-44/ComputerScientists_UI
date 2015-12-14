@@ -1,6 +1,7 @@
 #ifndef CONSTANTS
 #define CONSTANTS
 #include <QString>
+#include <QDate>
 
 namespace constants
 {
@@ -37,7 +38,8 @@ namespace constants
     const QString CREATE_OWNERS_TABLE = "CREATE TABLE IF NOT EXISTS Owners(scientist_id INTEGER, computer_id INTEGER, FOREIGN KEY (scientist_id) REFERENCES Scientists(id), FOREIGN KEY (computer_id) REFERENCES Computers(id), PRIMARY KEY (scientist_id, computer_id))";
     const QString ADD_CONNECTION = "INSERT INTO owners (scientist_id, computer_id) VALUES (%1, %2)";
     const QString DELETE_CONNECTION = "DELETE FROM owners WHERE scientist_id = %1 AND computer_id = %2";
-
+    const QDate MINDATE(100, 1, 1);
+    const QDate MAXDATE(QDate::currentDate());
 }
 
 

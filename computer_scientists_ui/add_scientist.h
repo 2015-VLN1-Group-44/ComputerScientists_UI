@@ -21,6 +21,8 @@ public:
 private slots:
     void on_add_button_clicked();
     
+    void on_cancel_button_clicked();
+
 private:
     Ui::Add_scientist *ui;
     Scientist_service scientist_service;

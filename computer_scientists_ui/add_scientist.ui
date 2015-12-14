@@ -44,7 +44,11 @@
       </widget>
      </item>
      <item>
-      <widget class="QDateEdit" name="birth_edit"/>
+      <widget class="QDateEdit" name="birth_edit">
+       <property name="displayFormat">
+        <string>dd/MM/yyyy</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_4">
@@ -54,7 +58,11 @@
       </widget>
      </item>
      <item>
-      <widget class="QDateEdit" name="death_edit"/>
+      <widget class="QDateEdit" name="death_edit">
+       <property name="displayFormat">
+        <string>dd/MM/yyyy</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_5">
