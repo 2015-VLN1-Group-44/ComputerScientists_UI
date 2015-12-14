@@ -28,11 +28,21 @@ void MainWindow::display_scientists(vector<Scientist> scientists)
     {
         Scientist current = scientists[i];
         QString name = QString::fromStdString(current.get_last() + ", " + current.get_first());
+        QString gender = "";
+        if (current.get_gender())
+        {
+            gender = "Male";
+        }
+        else
+        {
+            gender = "Female";
+        }
         QString dob = current.get_birth().toString(constants::IMPORT_DATE_FORMAT);
         QString dod = current.get_death().toString(constants::IMPORT_DATE_FORMAT);
         ui->table_scientists->setItem(i, 0, new QTableWidgetItem(name));
-        ui->table_scientists->setItem(i, 1, new QTableWidgetItem(dob));
-        ui->table_scientists->setItem(i, 2, new QTableWidgetItem(dod));
+        ui->table_scientists->setItem(i, 1, new QTableWidgetItem(gender));
+        ui->table_scientists->setItem(i, 2, new QTableWidgetItem(dob));
+        ui->table_scientists->setItem(i, 3, new QTableWidgetItem(dod));
     }
     ui->table_scientists->resizeColumnsToContents();
 }
