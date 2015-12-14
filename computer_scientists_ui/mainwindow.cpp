@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     display_all_scientists();
+    display_all_computers();
 }
 
 MainWindow::~MainWindow()
@@ -45,6 +46,49 @@ void MainWindow::display_scientists(vector<Scientist> scientists)
         ui->table_scientists->setItem(i, 3, new QTableWidgetItem(dod));
     }
     ui->table_scientists->resizeColumnsToContents();
+}
+
+void MainWindow::display_all_computers()
+{
+    vector<Computers> list_computers = computer_service.sort("name");
+    display_computers(list_computers);
+}
+
+void MainWindow::display_computers(vector<Computers> computers)
+{
+    ui->table_computers->setRowCount(computers.size());
+    for (unsigned int i = 0; i < computers.size(); i++)
+    {
+        Computers current = computers[i];
+        QString name = QString::fromStdString(current.get_name());
+        QString type = "";
+        QString was_built = "";
+        int type_nr = static_cast<int>(current.get_type());
+        if (type_nr == 1)
+        {
+            type = "Mechanical";
+        }
+        else if (type_nr == 2)
+        {
+            type = "Transistor";
+        }
+        else
+        {
+            type = "Electronic";
+        }
+        int year = current.get_year();
+        if (current.get_built())
+        {
+            was_built = "Yes";
+        }
+        else
+            was_built = "No";
+        ui->table_computers->setItem(i, 0, new QTableWidgetItem(name));
+        ui->table_computers->setItem(i, 1, new QTableWidgetItem(type));
+        ui->table_computers->setItem(i, 2, new QTableWidgetItem(QString::number(year)));
+        ui->table_computers->setItem(i, 3, new QTableWidgetItem(was_built));
+    }
+
 }
 
 

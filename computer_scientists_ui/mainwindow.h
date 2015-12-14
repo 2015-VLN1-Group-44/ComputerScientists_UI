@@ -20,6 +20,8 @@ public:
     ~MainWindow();
     void display_all_scientists();
     void display_scientists(vector<Scientist> scientists);
+    void display_all_computers();
+    void display_computers(vector<Computers> computers);
 private slots:
     void on_search_scientist_textChanged(const QString &arg1);
 

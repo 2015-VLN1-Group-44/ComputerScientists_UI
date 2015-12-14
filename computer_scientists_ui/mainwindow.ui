@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -79,13 +79,13 @@
       <property name="geometry">
        <rect>
         <x>600</x>
-        <y>10</y>
+        <y>60</y>
         <width>256</width>
         <height>192</height>
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="remove_scientist_button">
       <property name="geometry">
        <rect>
         <x>620</x>
@@ -95,10 +95,10 @@
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Remove scientist</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="add_scientist_button">
       <property name="geometry">
        <rect>
         <x>620</x>
@@ -108,10 +108,10 @@
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Add new scientist</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="edit_scientist_button">
       <property name="geometry">
        <rect>
         <x>620</x>
@@ -121,7 +121,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>Edit scientist</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="search_scientist">
@@ -137,11 +137,64 @@
        <string>Search scientists...</string>
       </property>
      </widget>
+     <widget class="QLabel" name="connected_computers_label">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>20</y>
+        <width>201</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Connected computers:</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
       <string>Computers</string>
      </attribute>
+     <widget class="QTableWidget" name="table_computers">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>571</width>
+        <height>601</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Type</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Year built</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Working model built</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QLineEdit" name="search_computers">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>620</y>
+        <width>521</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
