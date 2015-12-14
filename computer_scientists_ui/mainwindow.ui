@@ -36,7 +36,7 @@
         <x>20</x>
         <y>12</y>
         <width>551</width>
-        <height>611</height>
+        <height>601</height>
        </rect>
       </property>
       <property name="dragEnabled">
@@ -122,6 +122,19 @@
       </property>
       <property name="text">
        <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="search_scientist">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>620</y>
+        <width>541</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Search scientists...</string>
       </property>
      </widget>
     </widget>

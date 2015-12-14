@@ -48,3 +48,10 @@ void MainWindow::display_scientists(vector<Scientist> scientists)
 }
 
 
+
+void MainWindow::on_search_scientist_textChanged(const QString &arg1)
+{
+    QString search_term = ui->search_scientist->text();
+    vector<Scientist> scientists = scientist_service.search(search_term, "lastname");
+    display_scientists(scientists);
+}
