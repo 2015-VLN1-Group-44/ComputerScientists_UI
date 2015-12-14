@@ -125,3 +125,18 @@ void MainWindow::on_add_scientist_button_clicked()
     }
 
 }
+
+void MainWindow::on_table_scientists_clicked(const QModelIndex &index)
+{
+    ui->remove_scientist_button->setEnabled(true);
+    ui->edit_scientist_button->setEnabled(true);
+}
+
+void MainWindow::on_remove_scientist_button_clicked()
+{
+
+    int current_row = ui->table_scientists->currentRow();
+    int id_to_delete = ui->table_scientists->item(current_row, 4)->text().toInt();
+    scientist_service.delete_id(id_to_delete);
+    display_all_scientists();
+}

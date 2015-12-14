@@ -30,6 +30,10 @@ private slots:
 
     void on_add_scientist_button_clicked();
 
+    void on_table_scientists_clicked(const QModelIndex &index);
+
+    void on_remove_scientist_button_clicked();
+
 private:
 
     Ui::MainWindow *ui;
