@@ -115,6 +115,25 @@ void MainWindow::display_connected_computers()
 
 }
 
+void MainWindow::display_connected_scientists()
+{
+    ui->table_connected_scientists->clear();
+    vector<Scientist> connected_scientists = computer_service.joined_scientists(current_computer_id);
+    ui->table_connected_scientists->setRowCount(connected_scientists.size());
+    ui->table_connected_scientists->setColumnCount(2);
+    for (unsigned int i = 0; i < connected_scientists.size(); i++)
+    {
+        Scientist current = connected_scientists[i];
+        QString first = QString::fromStdString(current.get_first());
+        QString last = QString::fromStdString(current.get_last());
+        QString name = last + ", " + first;
+        QString id = QString::number(current.get_id());
+        ui->table_connected_scientists->setItem(i, 0, new QTableWidgetItem(name));
+        ui->table_connected_scientists->setItem(i, 1, new QTableWidgetItem(id));
+    }
+    ui->table_connected_scientists->setColumnHidden(1, true);
+}
+
 
 
 void MainWindow::on_search_scientist_textChanged(const QString &arg1)
@@ -167,4 +186,13 @@ void MainWindow::on_edit_scientist_button_clicked()
     {
         display_all_scientists();
     }
+}
+
+void MainWindow::on_table_computers_clicked(const QModelIndex &index)
+{
+    ui->edit_computer_button->setEnabled(true);
+    ui->remove_computer_button->setEnabled(true);
+    int current_row = index.row();
+    current_computer_id = ui->table_computers->item(current_row, 4)->text().toInt();
+    display_connected_scientists();
 }

@@ -30,6 +30,8 @@ public:
     // tekur tölvu id, skilar nöfnum tengdra tölvunarfræðinga
     vector<string> connected_scientists(int id);
 
+    vector<Scientist> joined_scientists(int id);
+
     // tengir saman tölvuid og scientist id
     void add_connection(int sci_id, int comp_id);
 

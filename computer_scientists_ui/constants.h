@@ -32,7 +32,8 @@ namespace constants
     const QString DELETE_SCIENTIST = "DELETE FROM scientists WHERE id = %1";
     const QString DELETE_COMPUTER = "DELETE FROM computers WHERE id = %1";
     const QString CONNECTED_SCIENTIST_ID = "SELECT lastname, scientist_id FROM scientists s, owners o WHERE s.id = o.scientist_id AND o.computer_id = %1";
-    const QString SCIENTIST_JOIN =  "SELECT lastname FROM scientists s, owners o WHERE s.id = o.scientist_id AND %1 = o.computer_id";
+    // const QString SCIENTIST_JOIN =  "SELECT lastname FROM scientists s, owners o WHERE s.id = o.scientist_id AND %1 = o.computer_id";
+    const QString SCIENTIST_JOIN =  "SELECT * FROM scientists s, owners o WHERE s.id = o.scientist_id AND %1 = o.computer_id";
     const QString COMPUTER_JOIN =  "SELECT name FROM computers c, owners o WHERE c.id = o.computer_id AND %1 = o.scientist_id";
     const QString CREATE_SCIENTISTS_TABLE = "CREATE TABLE IF NOT EXISTS Scientists(id INTEGER PRIMARY KEY AUTOINCREMENT, firstname VARCHAR NOT NULL, lastname VARCHAR NOT NULL, birth DATE NOT NULL, death DATE, gender BOOL, alive BOOL, active BOOL)";
     const QString CREATE_COMPUTERS_TABLE = "CREATE TABLE IF NOT EXISTS Computers(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR NOT NULL, built_year DATETIME, type ENUM, built BOOL, active BOOL)";

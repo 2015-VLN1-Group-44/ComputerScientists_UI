@@ -29,6 +29,7 @@ private slots:
     void display_computers(vector<Computers> computers);
 
     void display_connected_computers();
+    void display_connected_scientists();
 
     void on_search_scientist_textChanged(const QString &arg1);
 
@@ -41,6 +42,8 @@ private slots:
     void on_remove_scientist_button_clicked();
 
     void on_edit_scientist_button_clicked();
+
+    void on_table_computers_clicked(const QModelIndex &index);
 
 private:
 

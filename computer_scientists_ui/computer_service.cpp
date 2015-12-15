@@ -43,6 +43,12 @@ vector<string> Computer_service::connected_scientists(int id)
     return scientist_names;
 }
 
+vector<Scientist> Computer_service::joined_scientists(int id)
+{
+    QString command = QString(constants::SCIENTIST_JOIN.arg(id));
+    return computer_repo.open_scientist_db(command);
+}
+
 void Computer_service::add_connection(int sci_id, int comp_id)
 {
     QString command = QString(constants::ADD_CONNECTION.arg(sci_id).arg(comp_id));
