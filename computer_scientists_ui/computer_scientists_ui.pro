@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     computers.cpp \
     computer_service.cpp \
     add_scientist.cpp \
-    edit_scientist.cpp
+    edit_scientist.cpp \
+    view_scientist.cpp
 
 HEADERS  += mainwindow.h \
     repository.h \
@@ -31,10 +32,14 @@ HEADERS  += mainwindow.h \
     computer_service.h \
     constants.h \
     add_scientist.h \
-    edit_scientist.h
+    edit_scientist.h \
+    view_scientist.h
 
 FORMS    += mainwindow.ui \
     add_scientist.ui \
-    edit_scientist.ui
+    edit_scientist.ui \
+    view_scientist.ui
 
-RESOURCES +=
+DISTFILES +=
+RESOURCES += \
+    img.qrc
