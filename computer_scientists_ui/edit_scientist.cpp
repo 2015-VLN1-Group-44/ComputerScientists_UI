@@ -1,25 +1,25 @@
-#include "add_scientist.h"
-#include "ui_add_scientist.h"
-#include <QMessageBox>
+#include "edit_scientist.h"
+#include "ui_edit_scientist.h"
 
-Add_scientist::Add_scientist(QWidget *parent) :
+
+edit_scientist::edit_scientist(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Add_scientist)
+    ui(new Ui::edit_scientist)
 {
     ui->setupUi(this);
-
-    ui->birth_edit->setMinimumDate(constants::MINDATE);
-    ui->birth_edit->setMaximumDate(constants::MAXDATE);
-    ui->death_edit->setMinimumDate(constants::MINDATE);
-    ui->death_edit->setMaximumDate(constants::MAXDATE);
 }
 
-Add_scientist::~Add_scientist()
+edit_scientist::~edit_scientist()
 {
     delete ui;
 }
 
-void Add_scientist::on_add_button_clicked()
+void edit_scientist::set_id(const int &id)
+{
+    this->id = id;
+}
+
+void edit_scientist::on_save_button_clicked()
 {
     string firstname = ui->edit_first->text().toStdString();
     string lastname = ui->edit_last->text().toStdString();
@@ -75,7 +75,7 @@ void Add_scientist::on_add_button_clicked()
     }
 }
 
-void Add_scientist::on_cancel_button_clicked()
+void edit_scientist::on_cancel_button_clicked()
 {
     this->done(1);
 }

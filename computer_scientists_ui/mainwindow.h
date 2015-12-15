@@ -6,6 +6,7 @@
 #include "computer_service.h"
 #include <vector>
 #include "add_scientist.h"
+#include "edit_scientist.h"
 
 
 namespace Ui {
@@ -19,11 +20,16 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+
+private slots:
     void display_all_scientists();
     void display_scientists(vector<Scientist> scientists);
     void display_all_computers();
     void display_computers(vector<Computers> computers);
-private slots:
+
+    void display_connected_computers();
+
     void on_search_scientist_textChanged(const QString &arg1);
 
     void on_search_computers_textChanged(const QString &arg1);
@@ -34,11 +40,16 @@ private slots:
 
     void on_remove_scientist_button_clicked();
 
+    void on_edit_scientist_button_clicked();
+
 private:
 
     Ui::MainWindow *ui;
     Scientist_service scientist_service;
     Computer_service computer_service;
+
+    int current_scientist_id;
+    int current_computer_id;
 };
 
 #endif // MAINWINDOW_H

@@ -43,6 +43,8 @@ void Scientist_service::delete_id(int id)
 {
     QString command = QString(constants::DELETE_SCIENTIST.arg(id));
     scientist_repo.edit_remove(command);
+    command = QString(constants::DELETE_SCIENTIST_CONNECTIONS.arg(id));
+    scientist_repo.edit_remove(command);
 }
 
 

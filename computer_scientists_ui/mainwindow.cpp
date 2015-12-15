@@ -99,6 +99,22 @@ void MainWindow::display_computers(vector<Computers> computers)
     ui->table_computers->setColumnHidden(4, true);
 }
 
+void MainWindow::display_connected_computers()
+{
+    ui->list_connected_computers->clear();
+    vector<string> connected_computers = scientist_service.connected_computers(current_scientist_id);
+    for (unsigned int i = 0; i < connected_computers.size(); i++)
+    {
+        QString name = QString::fromStdString(connected_computers[i]);
+        ui->list_connected_computers->addItem(name);
+    }
+    if (!connected_computers.size())
+    {
+        ui->list_connected_computers->addItem("No connected computers");
+    }
+
+}
+
 
 
 void MainWindow::on_search_scientist_textChanged(const QString &arg1)
@@ -109,7 +125,6 @@ void MainWindow::on_search_scientist_textChanged(const QString &arg1)
 
 void MainWindow::on_search_computers_textChanged(const QString &arg1)
 {
-    // QString search_term = ui->search_computers->text();
     vector<Computers> computers = computer_service.search("name", arg1);
     display_computers(computers);
 }
@@ -118,18 +133,20 @@ void MainWindow::on_add_scientist_button_clicked()
 {
     Add_scientist *add_scientist;
     add_scientist = new Add_scientist;
-    int success = add_scientist->exec();
-    if (success == 0)
+    int cancel = add_scientist->exec();
+    if (!cancel)
     {
         display_all_scientists();
     }
-
 }
 
 void MainWindow::on_table_scientists_clicked(const QModelIndex &index)
 {
     ui->remove_scientist_button->setEnabled(true);
     ui->edit_scientist_button->setEnabled(true);
+    int current_row = index.row();
+    current_scientist_id = ui->table_scientists->item(current_row, 4)->text().toInt();
+    display_connected_computers();
 }
 
 void MainWindow::on_remove_scientist_button_clicked()
@@ -139,4 +156,9 @@ void MainWindow::on_remove_scientist_button_clicked()
     int id_to_delete = ui->table_scientists->item(current_row, 4)->text().toInt();
     scientist_service.delete_id(id_to_delete);
     display_all_scientists();
+}
+
+void MainWindow::on_edit_scientist_button_clicked()
+{
+
 }

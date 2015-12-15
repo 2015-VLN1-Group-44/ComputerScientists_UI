@@ -32,6 +32,8 @@ void Computer_service::delete_id(int id)
 {
     QString command = QString(constants::DELETE_COMPUTER.arg(id));
     computer_repo.edit_remove(command);
+    command = QString(constants::DELETE_COMPUTER_CONNECTIONS.arg(id));
+    computer_repo.edit_remove(command);
 }
 
 vector<string> Computer_service::connected_scientists(int id)
