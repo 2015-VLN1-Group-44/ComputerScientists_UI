@@ -54,14 +54,12 @@ void MainWindow::display_scientists(vector<Scientist> scientists)
     }
     ui->table_scientists->setColumnHidden(4, true);
     ui->table_scientists->resizeColumnsToContents();
-<<<<<<< HEAD
+
     ui->table_scientists->setColumnWidth(0, 200);                                                   //Edit Ingvi
     ui->table_scientists->setColumnWidth(1, 50);                                                   //Edit Ingvi
     ui->table_scientists->setColumnWidth(2, 75);                                                   //Edit Ingvi
     ui->table_scientists->setColumnWidth(3, 75);                                                   //Edit Ingvi
-=======
 
->>>>>>> 65ec72e698835683508bd0ebadb1c17052864fce
     current_list_of_scientists = scientists;
 }
 
