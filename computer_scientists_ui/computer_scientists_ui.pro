@@ -37,5 +37,4 @@ FORMS    += mainwindow.ui \
     add_scientist.ui \
     edit_scientist.ui
 
-RESOURCES += \
-    images.qrc
+RESOURCES +=
