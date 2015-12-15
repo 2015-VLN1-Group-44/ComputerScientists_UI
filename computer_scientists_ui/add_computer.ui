@@ -21,7 +21,7 @@
        <item>
         <widget class="QLabel" name="label_name">
          <property name="text">
-          <string>Name:</string>
+          <string>&lt;span style='color:#ff3366'&gt;*&lt;/span&gt; Name:</string>
          </property>
         </widget>
        </item>

@@ -109,6 +109,10 @@ void MainWindow::display_computers(vector<Computers> computers)
         ui->table_computers->setItem(i, 4, new QTableWidgetItem(id));
     }
     ui->table_computers->setColumnHidden(4, true);
+    ui->table_computers->setColumnWidth(0, 280);                                                   //Edit Ingvi
+    ui->table_computers->setColumnWidth(1, 120);                                                   //Edit Ingvi
+    ui->table_computers->setColumnWidth(2, 80);                                                   //Edit Ingvi
+    ui->table_computers->setColumnWidth(3, 80);
 }
 
 void MainWindow::display_connected_computers()

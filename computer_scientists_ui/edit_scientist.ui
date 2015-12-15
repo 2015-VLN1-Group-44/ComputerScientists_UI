@@ -29,7 +29,7 @@
      <item>
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Last name:</string>
+        <string>&lt;span style='color:#ff3366'&gt;*&lt;/span&gt; Last name:</string>
        </property>
       </widget>
      </item>
@@ -47,6 +47,13 @@
       <widget class="QDateEdit" name="birth_edit">
        <property name="displayFormat">
         <string>dd/MM/yyyy</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="living">
+       <property name="text">
+        <string>Living</string>
        </property>
       </widget>
      </item>
@@ -83,13 +90,6 @@
          <string>Male</string>
         </property>
        </item>
-      </widget>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="living">
-       <property name="text">
-        <string>Living</string>
-       </property>
       </widget>
      </item>
      <item>

@@ -51,9 +51,16 @@
       </widget>
      </item>
      <item>
+      <widget class="QCheckBox" name="living">
+       <property name="text">
+        <string>Living</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QLabel" name="label_dod">
        <property name="text">
-        <string>&lt;span style='color:#ff3366'&gt;*&lt;/span&gt;Date of death:</string>
+        <string>Date of death:</string>
        </property>
       </widget>
      </item>
@@ -86,13 +93,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="living">
-       <property name="text">
-        <string>Living</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QPushButton" name="add_button">
@@ -114,6 +114,16 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>edit_first</tabstop>
+  <tabstop>edit_last</tabstop>
+  <tabstop>birth_edit</tabstop>
+  <tabstop>living</tabstop>
+  <tabstop>death_edit</tabstop>
+  <tabstop>gender_select</tabstop>
+  <tabstop>add_button</tabstop>
+  <tabstop>cancel_button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
