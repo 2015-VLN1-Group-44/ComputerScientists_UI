@@ -171,7 +171,14 @@ void MainWindow::on_table_scientists_clicked(const QModelIndex &index)
 
 void MainWindow::on_remove_scientist_button_clicked()
 {
-    scientist_service.delete_id(current_scientist_id);
+    QMessageBox::StandardButton confirm;
+    confirm = QMessageBox::question(this, "Confirm deletion",
+                                    "Are you sure you want to delete this entry?",
+                                    QMessageBox::Yes|QMessageBox::No);
+    if (confirm == QMessageBox::Yes)
+    {
+        scientist_service.delete_id(current_scientist_id);
+    }
     display_all_scientists();
 }
 
