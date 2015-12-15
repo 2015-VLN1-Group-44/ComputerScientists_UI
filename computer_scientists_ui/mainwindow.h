@@ -61,6 +61,8 @@ private slots:
 
     void on_remove_connection_clicked();
 
+    void on_tabWidget_tabBarClicked(int index);
+
 private:
 
     Ui::MainWindow *ui;

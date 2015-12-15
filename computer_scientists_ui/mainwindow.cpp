@@ -285,5 +285,17 @@ void MainWindow::on_add_connection_clicked()
 void MainWindow::on_remove_connection_clicked()
 {
     computer_service.remove_connection(connected_scientist_id, current_computer_id);
+    ui->remove_connection->setEnabled(false);
     display_connected_scientists();
+}
+
+void MainWindow::on_tabWidget_tabBarClicked(int index)
+{
+    ui->edit_scientist_button->setEnabled(false);
+    ui->remove_scientist_button->setEnabled(false);
+    ui->edit_computer_button->setEnabled(false);
+    ui->remove_computer_button->setEnabled(false);
+    ui->remove_connection->setEnabled(false);
+    ui->add_connection->setEnabled(false);
+    ui->combo_scientist_to_connect->setEnabled(false);
 }
