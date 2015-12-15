@@ -9,6 +9,7 @@
 #include "edit_scientist.h"
 #include "add_computer.h"
 #include "edit_computer.h"
+#include <QTableWidgetItem>
 
 
 namespace Ui {
@@ -62,6 +63,10 @@ private slots:
     void on_remove_connection_clicked();
 
     void on_tabWidget_tabBarClicked(int index);
+
+    void on_table_scientists_currentItemChanged(QTableWidgetItem *current, QTableWidgetItem *previous);
+
+    void on_table_computers_currentItemChanged(QTableWidgetItem *current, QTableWidgetItem *previous);
 
 private:
 

@@ -55,10 +55,10 @@ void MainWindow::display_scientists(vector<Scientist> scientists)
     ui->table_scientists->setColumnHidden(4, true);
     ui->table_scientists->resizeColumnsToContents();
 
-    ui->table_scientists->setColumnWidth(0, 200);                                                   //Edit Ingvi
-    ui->table_scientists->setColumnWidth(1, 50);                                                   //Edit Ingvi
-    ui->table_scientists->setColumnWidth(2, 75);                                                   //Edit Ingvi
-    ui->table_scientists->setColumnWidth(3, 75);                                                   //Edit Ingvi
+    ui->table_scientists->setColumnWidth(0, 280);                                                   //Edit Ingvi
+    ui->table_scientists->setColumnWidth(1, 75);                                                   //Edit Ingvi
+    ui->table_scientists->setColumnWidth(2, 100);                                                   //Edit Ingvi
+    ui->table_scientists->setColumnWidth(3, 100);                                                   //Edit Ingvi
 
     current_list_of_scientists = scientists;
 }
@@ -298,4 +298,20 @@ void MainWindow::on_tabWidget_tabBarClicked(int index)
     ui->remove_connection->setEnabled(false);
     ui->add_connection->setEnabled(false);
     ui->combo_scientist_to_connect->setEnabled(false);
+}
+
+
+
+void MainWindow::on_table_scientists_currentItemChanged(QTableWidgetItem *current, QTableWidgetItem *previous)
+{
+    int current_row = current->row();
+    current_scientist_id = ui->table_scientists->item(current_row, 4)->text().toInt();
+    display_connected_computers();
+}
+
+void MainWindow::on_table_computers_currentItemChanged(QTableWidgetItem *current, QTableWidgetItem *previous)
+{
+    int current_row = current->row();
+    current_computer_id = ui->table_computers->item(current_row, 4)->text().toInt();
+    display_connected_scientists();
 }
