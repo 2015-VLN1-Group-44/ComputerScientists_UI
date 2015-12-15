@@ -35,7 +35,8 @@ void Add_scientist::on_add_button_clicked()
     }
     if (!alive && death < birth)
     {
-        errormessage = "Date of death before date of birth. Please correct.";
+        //errormessage = "Date of death before date of birth. Please correct.";                                                       má eyða Ingvi
+        ui->label_dod->setText("<span style='color: #ff3366'>Date of death before date of birth. Please correct.</span>");               //Edit Ingvi Muna að breyta label_4 í label_dod
     }
 //    else if (birth > QDate::currentDate())
 //    {
@@ -55,7 +56,8 @@ void Add_scientist::on_add_button_clicked()
 //    }
     else if (!lastname.length())
     {
-        errormessage = "No last name entered. Please correct";
+        //errormessage = "No last name entered. Please correct";                                                            má eyða Ingvi
+        ui->label_lastname->setText("<span style='color: #ff3366'>No last name entered. Please correct</span>");               //Edit Ingvi Muna að breyta label_2 i label_lastname
     }
     else
     {
@@ -63,9 +65,13 @@ void Add_scientist::on_add_button_clicked()
     }
     if (!valid_input)
     {
-        QMessageBox messageBox;
-        messageBox.critical(0, "Error", errormessage);
-        messageBox.setFixedSize(500,200);
+        //QMessageBox messageBox;                                                                                          má eyða Ingvi
+        //messageBox.critical(0, "Error", errormessage);                                                                   má eyða Ingvi
+        //messageBox.setFixedSize(500,200);                                                                                má eyða Ingvi
+        if (lastname.length())                                                                                           //Edit Ingvi
+        ui->label_lastname->setText("<span style='color: #000000'>Last name:</span>");                                 //Edit Ingvi Muna að breyta label_2 í label_lastname
+        if (!alive && death > birth)                                                                                     //Edit Ingvi
+        ui->label_dod->setText("<span style='color: #000000'>Date of death:</span>");                                 //Edit Ingvi Muna að breyta label_4 í label_dod
     }
     else
     {
