@@ -22,7 +22,7 @@ private slots:
 
     void on_cancel_button_clicked();
 
-    void on_check_was_built_toggled(bool checked);
+    // void on_check_was_built_toggled(bool checked);
 
 private:
     Ui::Add_computer *ui;

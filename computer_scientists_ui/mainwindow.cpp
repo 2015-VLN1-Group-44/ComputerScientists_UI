@@ -207,3 +207,14 @@ void MainWindow::on_add_computer_button_clicked()
         display_all_computers();
     }
 }
+
+void MainWindow::on_edit_computer_button_clicked()
+{
+    Edit_computer *edit_computer;
+    edit_computer  = new Edit_computer(current_computer_id, this);
+    int cancel = edit_computer->exec();
+    if (!cancel)
+    {
+        display_all_computers();
+    }
+}

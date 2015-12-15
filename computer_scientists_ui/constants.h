@@ -18,6 +18,7 @@ namespace constants
     const std::string FOUND = "Found entries:";
     const QString SCIENTIST_EDIT = "UPDATE scientists SET %1 = '%2' WHERE id = %3";
     const QString SCIENTIST_UPDATE = "UPDATE scientists SET firstname = '%1', lastname = '%2', birth = '%3', death = '%4', gender = '%5', alive = '%6' WHERE id = %7 ";
+    const QString COMPUTER_UPDATE = "UPDATE computers SET name = '%1', built_year = '%2', type = '%3', built = '%4' WHERE id = '%5' ";
     const QString SCIENTIST_FROM_ID = "SELECT * FROM scientists WHERE id LIKE '%%1%'";
     const QString SCIENTISTS_ORDER = "SELECT * FROM scientists ORDER BY %1 ";
     const QString INSERT_FORM =  "INSERT INTO scientists (firstname, lastname, birth, death, gender, alive, active)" 

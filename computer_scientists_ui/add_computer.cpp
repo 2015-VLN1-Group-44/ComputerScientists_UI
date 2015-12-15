@@ -8,6 +8,7 @@ Add_computer::Add_computer(QWidget *parent) :
     ui(new Ui::Add_computer)
 {
     ui->setupUi(this);
+    ui->year_edit->setMinimumDate(constants::MINDATE);
     ui->year_edit->setMaximumDate(constants::MAXDATE);
 }
 
@@ -21,8 +22,7 @@ void Add_computer::on_add_button_clicked()
     bool valid = true;
     QString errormessage = "";
     string name = ui->name_edit->text().toStdString();
-    int year;
-    year = ui->year_edit->text().toInt();
+    int year = ui->year_edit->text().toInt();
     bool built = ui->check_was_built->isChecked();
     int ct = ui->combo_type->currentIndex() + 1;
     Computers temp(name, year, built, ct);
@@ -49,14 +49,14 @@ void Add_computer::on_cancel_button_clicked()
     this->done(-1);
 }
 
-void Add_computer::on_check_was_built_toggled(bool checked)
-{
-    if (!checked)
-    {
-        ui->year_edit->setEnabled(false);
-    }
-    else
-    {
-        ui->year_edit->setEnabled(true);
-    }
-}
+//void Add_computer::on_check_was_built_toggled(bool checked)
+//{
+//    if (!checked)
+//    {
+//        ui->year_edit->setEnabled(false);
+//    }
+//    else
+//    {
+//        ui->year_edit->setEnabled(true);
+//    }
+//}

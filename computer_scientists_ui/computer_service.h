@@ -18,7 +18,8 @@ public:
      * skilar vektor af tölvum sem passa við leitarskilyrði
      */
     vector<Computers> search(QString column, QString search_arg);
-    void edit_entry (QString column, QString argument, int id);
+    // void edit_entry (QString column, QString argument, int id);
+    void edit_computer (Computers c);
 
     /* Tekur við id-númeri, skilar samsvarandi tölvu
      */

@@ -16,11 +16,23 @@ vector<Computers> Computer_service::search(QString column, QString search_arg)
     return computer_repo.open_computer_db(command);
 }
 
-void Computer_service::edit_entry (QString column, QString argument, int id)
+void Computer_service::edit_computer(Computers c)
 {
-    QString command = QString(constants::COMPUTERS_EDIT.arg(column).arg(argument).arg(id));
+    QString name = QString::fromStdString(c.get_name());
+    int year = c.get_year();
+    bool built = c.get_built();
+    int type = static_cast<int>(c.get_type());
+    int id = c.get_id();
+
+    QString command = QString(constants::COMPUTER_UPDATE.arg(name).arg(year).arg(type).arg(built).arg(id));
     computer_repo.edit_remove(command);
 }
+
+//void Computer_service::edit_entry (QString column, QString argument, int id)
+//{
+//    QString command = QString(constants::COMPUTERS_EDIT.arg(column).arg(argument).arg(id));
+//    computer_repo.edit_remove(command);
+//}
 
 Computers Computer_service::from_id(int id)
 {
