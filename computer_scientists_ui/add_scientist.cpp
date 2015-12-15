@@ -79,3 +79,15 @@ void Add_scientist::on_cancel_button_clicked()
 {
     this->done(1);
 }
+
+void Add_scientist::on_living_toggled(bool checked)
+{
+    if (checked)
+    {
+        ui->death_edit->setEnabled(false);
+    }
+    else
+    {
+        ui->death_edit->setEnabled(true);
+    }
+}

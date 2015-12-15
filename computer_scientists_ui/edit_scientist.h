@@ -22,6 +22,8 @@ public:
 private slots:
     void on_save_edit_button_clicked();
 
+    void on_living_toggled(bool checked);
+
 private:
     Ui::Edit_scientist *ui;
     int id;
