@@ -47,11 +47,19 @@ private slots:
 
     void on_table_computers_clicked(const QModelIndex &index);
 
+    void list_scientists_to_connect();
+
     void on_add_computer_button_clicked();
 
     void on_edit_computer_button_clicked();
 
     void on_remove_computer_button_clicked();
+
+    void on_table_connected_scientists_clicked(const QModelIndex &index);
+
+    void on_add_connection_clicked();
+
+    void on_remove_connection_clicked();
 
 private:
 
@@ -59,8 +67,11 @@ private:
     Scientist_service scientist_service;
     Computer_service computer_service;
 
+    vector<Scientist> current_list_of_scientists;
+
     int current_scientist_id;
     int current_computer_id;
+    int connected_scientist_id;
 };
 
 #endif // MAINWINDOW_H

@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -136,34 +136,38 @@
         <string>Computers</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_3">
-        <item row="1" column="1">
-         <widget class="QTableWidget" name="table_connected_scientists"/>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLineEdit" name="search_computers">
-          <property name="placeholderText">
-           <string>Search computers...</string>
-          </property>
-         </widget>
-        </item>
         <item row="4" column="1">
-         <widget class="QPushButton" name="edit_computer_button">
+         <widget class="QPushButton" name="add_connection">
           <property name="enabled">
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>Edit computer</string>
+           <string>Add connection</string>
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
+        <item row="0" column="1">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Connected scientists:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
          <widget class="QPushButton" name="add_computer_button">
           <property name="text">
            <string>Add computer</string>
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
+        <item row="8" column="0">
+         <widget class="QLineEdit" name="search_computers">
+          <property name="placeholderText">
+           <string>Search computers...</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
          <spacer name="verticalSpacer_2">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -176,24 +180,7 @@
           </property>
          </spacer>
         </item>
-        <item row="5" column="1">
-         <widget class="QPushButton" name="remove_computer_button">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>Remove computer</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Connected scientists:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0" rowspan="5">
+        <item row="0" column="0" rowspan="8">
          <widget class="QTableWidget" name="table_computers">
           <attribute name="verticalHeaderVisible">
            <bool>false</bool>
@@ -223,6 +210,56 @@
             <string>id</string>
            </property>
           </column>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QTableWidget" name="table_connected_scientists">
+          <attribute name="horizontalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="remove_connection">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Remove connection</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QPushButton" name="remove_computer_button">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Remove computer</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QPushButton" name="edit_computer_button">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Edit computer</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QComboBox" name="combo_scientist_to_connect">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
          </widget>
         </item>
        </layout>

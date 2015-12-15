@@ -90,3 +90,8 @@ void Edit_scientist::on_living_toggled(bool checked)
         ui->death_edit->setEnabled(true);
     }
 }
+
+void Edit_scientist::on_cancel_button_clicked()
+{
+    this->done(-1);
+}

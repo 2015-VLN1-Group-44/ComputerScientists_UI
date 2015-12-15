@@ -52,6 +52,7 @@ void MainWindow::display_scientists(vector<Scientist> scientists)
     }
     ui->table_scientists->setColumnHidden(4, true);
     ui->table_scientists->resizeColumnsToContents();
+    current_list_of_scientists = scientists;
 }
 
 void MainWindow::display_all_computers()
@@ -200,6 +201,19 @@ void MainWindow::on_table_computers_clicked(const QModelIndex &index)
     int current_row = index.row();
     current_computer_id = ui->table_computers->item(current_row, 4)->text().toInt();
     display_connected_scientists();
+    ui->add_connection->setEnabled(true);
+    ui->combo_scientist_to_connect->setEnabled(true);
+    list_scientists_to_connect();
+}
+
+void MainWindow::list_scientists_to_connect()
+{
+    for (unsigned int i = 0; i < current_list_of_scientists.size(); i++)
+    {
+        Scientist current = current_list_of_scientists[i];
+        QString last = QString::fromStdString(current.get_last());
+        ui->combo_scientist_to_connect->addItem(last);
+    }
 }
 
 void MainWindow::on_add_computer_button_clicked()
@@ -239,4 +253,25 @@ void MainWindow::on_remove_computer_button_clicked()
         // Cancelled
     }
     display_all_computers();
+}
+
+void MainWindow::on_table_connected_scientists_clicked(const QModelIndex &index)
+{
+    ui->remove_connection->setEnabled(true);
+    int current_row = index.row();
+    connected_scientist_id = ui->table_connected_scientists->item(current_row, 1)->text().toInt();
+}
+
+void MainWindow::on_add_connection_clicked()
+{
+    int index_to_connect = ui->combo_scientist_to_connect->currentIndex();
+    int id_to_connect = current_list_of_scientists[index_to_connect].get_id();
+    computer_service.add_connection(id_to_connect, current_computer_id);
+    display_connected_scientists();
+}
+
+void MainWindow::on_remove_connection_clicked()
+{
+    computer_service.remove_connection(connected_scientist_id, current_computer_id);
+    display_connected_scientists();
 }
