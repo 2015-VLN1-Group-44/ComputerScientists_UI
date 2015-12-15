@@ -28,6 +28,8 @@ void MainWindow::display_scientists(vector<Scientist> scientists)
 {
     ui->table_scientists->setRowCount(scientists.size());
     ui->table_scientists->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->table_scientists->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->table_scientists->setEditTriggers(QAbstractItemView::NoEditTriggers);
     for (unsigned int i = 0; i < scientists.size(); i++)
     {
         Scientist current = scientists[i];
@@ -52,10 +54,14 @@ void MainWindow::display_scientists(vector<Scientist> scientists)
     }
     ui->table_scientists->setColumnHidden(4, true);
     ui->table_scientists->resizeColumnsToContents();
+<<<<<<< HEAD
     ui->table_scientists->setColumnWidth(0, 200);                                                   //Edit Ingvi
     ui->table_scientists->setColumnWidth(1, 50);                                                   //Edit Ingvi
     ui->table_scientists->setColumnWidth(2, 75);                                                   //Edit Ingvi
     ui->table_scientists->setColumnWidth(3, 75);                                                   //Edit Ingvi
+=======
+
+>>>>>>> 65ec72e698835683508bd0ebadb1c17052864fce
     current_list_of_scientists = scientists;
 }
 
@@ -69,6 +75,8 @@ void MainWindow::display_computers(vector<Computers> computers)
 {
     ui->table_computers->setRowCount(computers.size());
     ui->table_computers->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->table_computers->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->table_computers->setEditTriggers(QAbstractItemView::NoEditTriggers);
     for (unsigned int i = 0; i < computers.size(); i++)
     {
         Computers current = computers[i];
@@ -124,6 +132,8 @@ void MainWindow::display_connected_computers()
 void MainWindow::display_connected_scientists()
 {
     ui->table_connected_scientists->clear();
+    ui->table_connected_scientists->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->table_connected_scientists->setEditTriggers(QAbstractItemView::NoEditTriggers);
     vector<Scientist> connected_scientists = computer_service.joined_scientists(current_computer_id);
     ui->table_connected_scientists->setRowCount(connected_scientists.size());
     ui->table_connected_scientists->setColumnCount(2);
