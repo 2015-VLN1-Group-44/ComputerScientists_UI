@@ -24,140 +24,112 @@
        <attribute name="title">
         <string>Scientists</string>
        </attribute>
-       <widget class="QTableWidget" name="table_scientists">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>12</y>
-          <width>551</width>
-          <height>601</height>
-         </rect>
-        </property>
-        <property name="dragEnabled">
-         <bool>true</bool>
-        </property>
-        <property name="sortingEnabled">
-         <bool>true</bool>
-        </property>
-        <attribute name="horizontalHeaderCascadingSectionResizes">
-         <bool>false</bool>
-        </attribute>
-        <attribute name="horizontalHeaderHighlightSections">
-         <bool>true</bool>
-        </attribute>
-        <attribute name="horizontalHeaderStretchLastSection">
-         <bool>true</bool>
-        </attribute>
-        <attribute name="verticalHeaderVisible">
-         <bool>false</bool>
-        </attribute>
-        <column>
-         <property name="text">
-          <string>Name</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Gender</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Date of birth</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Date of death</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>id</string>
-         </property>
-        </column>
-       </widget>
-       <widget class="QListWidget" name="list_connected_computers">
-        <property name="geometry">
-         <rect>
-          <x>600</x>
-          <y>60</y>
-          <width>256</width>
-          <height>192</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="remove_scientist_button">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="geometry">
-         <rect>
-          <x>620</x>
-          <y>590</y>
-          <width>201</width>
-          <height>32</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Remove scientist</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="add_scientist_button">
-        <property name="geometry">
-         <rect>
-          <x>620</x>
-          <y>530</y>
-          <width>201</width>
-          <height>32</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Add new scientist</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="edit_scientist_button">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="geometry">
-         <rect>
-          <x>620</x>
-          <y>560</y>
-          <width>201</width>
-          <height>32</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Edit scientist</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="search_scientist">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>620</y>
-          <width>541</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="placeholderText">
-         <string>Search scientists...</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="connected_computers_label">
-        <property name="geometry">
-         <rect>
-          <x>600</x>
-          <y>20</y>
-          <width>201</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Connected computers:</string>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0" rowspan="6">
+         <widget class="QTableWidget" name="table_scientists">
+          <property name="dragEnabled">
+           <bool>true</bool>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <attribute name="horizontalHeaderCascadingSectionResizes">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderHighlightSections">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Gender</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Date of birth</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Date of death</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>id</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="connected_computers_label">
+          <property name="text">
+           <string>Connected computers:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QPushButton" name="add_scientist_button">
+          <property name="text">
+           <string>Add new scientist</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLineEdit" name="search_scientist">
+          <property name="placeholderText">
+           <string>Search scientists...</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QListWidget" name="list_connected_computers"/>
+        </item>
+        <item row="4" column="1">
+         <widget class="QPushButton" name="edit_scientist_button">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Edit scientist</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1" rowspan="2">
+         <widget class="QPushButton" name="remove_scientist_button">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Remove scientist</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">

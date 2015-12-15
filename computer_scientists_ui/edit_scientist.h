@@ -3,32 +3,30 @@
 
 #include <QDialog>
 #include "scientist_service.h"
-#include "constants.h"
-#include <QMessageBox>
 
 namespace Ui {
-class edit_scientist;
+class Edit_scientist;
 }
 
-class edit_scientist : public QDialog
+class Edit_scientist : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit edit_scientist(QWidget *parent = 0);
-    ~edit_scientist();
+    explicit Edit_scientist(int &id, QWidget *parent = 0);
+    ~Edit_scientist();
 
     void set_id(const int &id);
+    int get_id();
 
 private slots:
-    void on_save_button_clicked();
-
-    void on_cancel_button_clicked();
+    void on_save_edit_button_clicked();
 
 private:
-    Ui::edit_scientist *ui;
-    Scientist_service scientist_service;
+    Ui::Edit_scientist *ui;
     int id;
+    Scientist temp;
+    Scientist_service scientist_service;
 };
 
 #endif // EDIT_SCIENTIST_H

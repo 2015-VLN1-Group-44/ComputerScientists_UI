@@ -17,6 +17,7 @@ namespace constants
     const QString SEARCH_SCIENTIST_TEMPLATE = "SELECT * FROM scientists WHERE %1 LIKE '%%2%' ";
     const std::string FOUND = "Found entries:";
     const QString SCIENTIST_EDIT = "UPDATE scientists SET %1 = '%2' WHERE id = %3";
+    const QString SCIENTIST_UPDATE = "UPDATE scientists SET firstname = '%1', lastname = '%2', birth = '%3', death = '%4', gender = '%5', alive = '%6' WHERE id = %7 ";
     const QString SCIENTIST_FROM_ID = "SELECT * FROM scientists WHERE id LIKE '%%1%'";
     const QString SCIENTISTS_ORDER = "SELECT * FROM scientists ORDER BY %1 ";
     const QString INSERT_FORM =  "INSERT INTO scientists (firstname, lastname, birth, death, gender, alive, active)" 

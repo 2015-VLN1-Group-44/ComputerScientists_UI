@@ -33,9 +33,16 @@ Scientist Scientist_service::find_from_id(int scientist_id)
     return scientist_repo.open_scientist_db(command)[0];
 }
 
-void Scientist_service::edit_entry(QString column, QString insert, int id)
+void Scientist_service::edit_entry(Scientist s)
 {
-    QString command = QString(constants::SCIENTIST_EDIT.arg(column).arg(insert).arg(id));
+    QString first = QString::fromStdString(s.get_first());
+    QString last = QString::fromStdString(s.get_last());
+    QString birth = s.get_birth().toString(constants::IMPORT_DATE_FORMAT);
+    QString death = s.get_death().toString(constants::IMPORT_DATE_FORMAT);
+    bool gender = s.get_gender();
+    bool living = s.get_living();
+    int id = s.get_id();
+    QString command = constants::SCIENTIST_UPDATE.arg(first).arg(last).arg(birth).arg(death).arg(gender).arg(living).arg(id);
     scientist_repo.edit_remove(command);
 }
 

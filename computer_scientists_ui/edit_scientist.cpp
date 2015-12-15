@@ -1,25 +1,45 @@
 #include "edit_scientist.h"
 #include "ui_edit_scientist.h"
+#include <QMessageBox>
 
-
-edit_scientist::edit_scientist(QWidget *parent) :
+Edit_scientist::Edit_scientist(int &id, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::edit_scientist)
+    ui(new Ui::Edit_scientist)
 {
     ui->setupUi(this);
+    this->id = id;
+    temp = scientist_service.find_from_id(id);
+    QString first, last;
+    first = QString::fromStdString(temp.get_first());
+    last = QString::fromStdString(temp.get_last());
+    ui->edit_first->setText(first);
+    ui->edit_last->setText(last);
+    ui->birth_edit->setMinimumDate(constants::MINDATE);
+    ui->birth_edit->setMaximumDate(constants::MAXDATE);
+    ui->death_edit->setMinimumDate(constants::MINDATE);
+    ui->death_edit->setMaximumDate(constants::MAXDATE);
+    ui->birth_edit->setDate(temp.get_birth());
+    ui->death_edit->setDate(temp.get_death());
+    ui->gender_select->setCurrentIndex(temp.get_gender());
+    ui->living->setChecked(temp.get_living());
 }
 
-edit_scientist::~edit_scientist()
+Edit_scientist::~Edit_scientist()
 {
     delete ui;
 }
 
-void edit_scientist::set_id(const int &id)
+void Edit_scientist::set_id(const int &id)
 {
     this->id = id;
 }
 
-void edit_scientist::on_save_button_clicked()
+int Edit_scientist::get_id()
+{
+    return id;
+}
+
+void Edit_scientist::on_save_edit_button_clicked()
 {
     string firstname = ui->edit_first->text().toStdString();
     string lastname = ui->edit_last->text().toStdString();
@@ -37,22 +57,6 @@ void edit_scientist::on_save_button_clicked()
     {
         errormessage = "Date of death before date of birth. Please correct.";
     }
-//    else if (birth > QDate::currentDate())
-//    {
-//        errormessage = "Date of birth after current date. Please correct.";
-//    }
-//    else if (death > QDate::currentDate())
-//    {
-//        errormessage = "Date of death after current date. Please correct.";
-//    }
-//    else if (!death.isValid() && !alive)
-//    {
-//        errormessage = "Invalid date of death. Please correct.";
-//    }
-//    else if (!birth.isValid())
-//    {
-//        errormessage = "Invalid date of birth. Please correct";
-//    }
     else if (!lastname.length())
     {
         errormessage = "No last name entered. Please correct";
@@ -69,13 +73,8 @@ void edit_scientist::on_save_button_clicked()
     }
     else
     {
-        Scientist temp(firstname, lastname, gender, birth, death, alive);
-        scientist_service.add_scientist(temp);
+        Scientist temp(firstname, lastname, gender, birth, death, alive, id, 1);
+        scientist_service.edit_entry(temp);
         this->done(0);
     }
-}
-
-void edit_scientist::on_cancel_button_clicked()
-{
-    this->done(1);
 }

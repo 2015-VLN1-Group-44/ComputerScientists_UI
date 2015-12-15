@@ -160,5 +160,11 @@ void MainWindow::on_remove_scientist_button_clicked()
 
 void MainWindow::on_edit_scientist_button_clicked()
 {
-
+    Edit_scientist *edit_scientist;
+    edit_scientist = new Edit_scientist(current_scientist_id, this);
+    int cancel = edit_scientist->exec();
+    if (!cancel)
+    {
+        display_all_scientists();
+    }
 }

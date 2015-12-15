@@ -30,7 +30,7 @@ public:
      * edita, insert geymir nýju upplýsingarnar, id segir hvaða scientist
      * á að breyta.
      */
-    void edit_entry(QString column, QString insert, int id);
+    void edit_entry(Scientist s);
 
     /* Tekur id scientista og skilar vektor af nöfnum tölva sem tengjast
      * honum
