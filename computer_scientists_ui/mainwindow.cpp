@@ -196,3 +196,14 @@ void MainWindow::on_table_computers_clicked(const QModelIndex &index)
     current_computer_id = ui->table_computers->item(current_row, 4)->text().toInt();
     display_connected_scientists();
 }
+
+void MainWindow::on_add_computer_button_clicked()
+{
+    Add_computer *add_computer;
+    add_computer = new Add_computer;
+    int cancel = add_computer->exec();
+    if (!cancel)
+    {
+        display_all_computers();
+    }
+}

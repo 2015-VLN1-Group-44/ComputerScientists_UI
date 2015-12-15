@@ -7,6 +7,7 @@
 #include <vector>
 #include "add_scientist.h"
 #include "edit_scientist.h"
+#include "add_computer.h"
 
 
 namespace Ui {
@@ -44,6 +45,8 @@ private slots:
     void on_edit_scientist_button_clicked();
 
     void on_table_computers_clicked(const QModelIndex &index);
+
+    void on_add_computer_button_clicked();
 
 private:
 
