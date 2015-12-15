@@ -25,6 +25,8 @@ SOURCES += main.cpp\
     add_computer.cpp \
     edit_computer.cpp
 
+
+
 HEADERS  += mainwindow.h \
     repository.h \
     scientist_service.h \
@@ -37,11 +39,13 @@ HEADERS  += mainwindow.h \
     add_computer.h \
     edit_computer.h
 
+
 FORMS    += mainwindow.ui \
     add_scientist.ui \
     edit_scientist.ui \
     add_computer.ui \
     edit_computer.ui
 
+
 DISTFILES +=
-RESOURCES +=
+
