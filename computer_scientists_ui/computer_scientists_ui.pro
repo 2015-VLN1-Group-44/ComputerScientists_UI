@@ -41,4 +41,5 @@ FORMS    += mainwindow.ui \
     add_computer.ui
 
 DISTFILES +=
-RESOURCES +=
+RESOURCES += \
+    img.qrc
