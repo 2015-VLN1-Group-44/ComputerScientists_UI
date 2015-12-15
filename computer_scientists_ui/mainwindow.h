@@ -51,6 +51,8 @@ private slots:
 
     void on_edit_computer_button_clicked();
 
+    void on_remove_computer_button_clicked();
+
 private:
 
     Ui::MainWindow *ui;

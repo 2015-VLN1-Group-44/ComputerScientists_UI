@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -170,10 +171,7 @@ void MainWindow::on_table_scientists_clicked(const QModelIndex &index)
 
 void MainWindow::on_remove_scientist_button_clicked()
 {
-
-    int current_row = ui->table_scientists->currentRow();
-    int id_to_delete = ui->table_scientists->item(current_row, 4)->text().toInt();
-    scientist_service.delete_id(id_to_delete);
+    scientist_service.delete_id(current_scientist_id);
     display_all_scientists();
 }
 
@@ -217,4 +215,21 @@ void MainWindow::on_edit_computer_button_clicked()
     {
         display_all_computers();
     }
+}
+
+void MainWindow::on_remove_computer_button_clicked()
+{
+    QMessageBox::StandardButton confirm;
+    confirm = QMessageBox::question(this, "Confirm deletion",
+                                    "Are you sure you want to delete this entry?",
+                                    QMessageBox::Yes|QMessageBox::No);
+    if (confirm == QMessageBox::Yes)
+    {
+        computer_service.delete_id(current_computer_id);
+    }
+    else
+    {
+        // Cancelled
+    }
+    display_all_computers();
 }
