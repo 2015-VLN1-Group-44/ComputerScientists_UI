@@ -41,4 +41,5 @@ FORMS    += mainwindow.ui \
     view_scientist.ui
 
 DISTFILES +=
-RESOURCES +=
+RESOURCES += \
+    img.qrc
