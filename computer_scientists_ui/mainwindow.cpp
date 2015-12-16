@@ -283,6 +283,10 @@ void MainWindow::on_table_connected_scientists_clicked(const QModelIndex &index)
     ui->remove_connection->setEnabled(true);
     int current_row = index.row();
     connected_scientist_id = ui->table_connected_scientists->item(current_row, 1)->text().toInt();
+    if (connected_scientist_id == 0)
+    {
+        ui->remove_connection->setEnabled(false);
+    }
 }
 
 void MainWindow::on_add_connection_clicked()
