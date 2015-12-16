@@ -48,36 +48,29 @@ void Edit_scientist::on_save_edit_button_clicked()
     bool gender = (bool) ui->gender_select->currentIndex();
     bool alive = ui->living->isChecked();
     bool valid_input = false;
-    QString errormessage = "";
+
     if (alive)
     {
         death = QDate::fromString(0000-0-0, constants::IMPORT_DATE_FORMAT);
     }
     if (!alive && death < birth)
     {
-        //errormessage = "Date of death before date of birth. Please correct.";                                             ----------Má eyða
-        ui->label_dod->setText("<span style='color: #ff3366'>Date of death before date of birth. Please correct.</span>");               //Edit Ingvi
+        ui->label_dod->setText("<span style='color: #ff3366'>Date of death before date of birth. Please correct.</span>");
     }
     else if (!lastname.length())
     {
-        //errormessage = "No last name entered. Please correct";                                        -----------------------Má eyða
-        ui->label_lastname->setText("<span style='color: #ff3366'>Please enter last name</span>");               //Edit Ingvi
+        ui->label_lastname->setText("<span style='color: #ff3366'>Please enter last name</span>");
     }
     else
     {
         valid_input = true;
     }
-    if (!valid_input)
-    {
-//        QMessageBox messageBox;
-//        messageBox.critical(0, "Error", errormessage);                                                    --------------------má eyða
-//        messageBox.setFixedSize(500,200);
-        if (lastname.length())                                                                                           //Edit Ingvi
-        ui->label_lastname->setText("<span style='color: #000000'>Last name:</span>");                                 //Edit Ingvi
-        if (!alive && death > birth)                                                                                     //Edit Ingvi
-        ui->label_dod->setText("<span style='color: #000000'>Date of death:</span>");                                 //Edit Ingvi
-    }
-    else
+    if (lastname.length())
+        ui->label_lastname->setText("<span style='color: #000000'>Last name:</span>");
+    if (!alive && death > birth)
+        ui->label_dod->setText("<span style='color: #000000'>Date of death:</span>");
+
+    if (valid_input)
     {
         Scientist temp(firstname, lastname, gender, birth, death, alive, id, 1);
         scientist_service.edit_entry(temp);

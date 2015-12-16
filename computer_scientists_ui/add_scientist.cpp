@@ -35,29 +35,11 @@ void Add_scientist::on_add_button_clicked()
     }
     if (!alive && death < birth)
     {
-        //errormessage = "Date of death before date of birth. Please correct.";                                                       má eyða Ingvi
-        ui->label_dod->setText("<span style='color: #ff3366'>Date of death before date of birth. Please correct.</span>");               //Edit Ingvi Muna að breyta label_4 í label_dod
+        ui->label_dod->setText("<span style='color: #ff3366'>Date of death before date of birth. Please correct.</span>");
     }
-//    else if (birth > QDate::currentDate())
-//    {
-//        errormessage = "Date of birth after current date. Please correct.";
-//    }
-//    else if (death > QDate::currentDate())
-//    {
-//        errormessage = "Date of death after current date. Please correct.";
-//    }
-//    else if (!death.isValid() && !alive)
-//    {
-//        errormessage = "Invalid date of death. Please correct.";
-//    }
-//    else if (!birth.isValid())
-//    {
-//        errormessage = "Invalid date of birth. Please correct";
-//    }
     else if (!lastname.length())
     {
-        //errormessage = "No last name entered. Please correct";                                                     --------------- má eyða Ingvi
-        ui->label_lastname->setText("<span style='color: #ff3366'>Please enter last name</span>");               //Edit Ingvi Muna að breyta label_2 i label_lastname
+        ui->label_lastname->setText("<span style='color: #ff3366'>Please enter last name</span>");
     }
     else
     {
@@ -65,13 +47,10 @@ void Add_scientist::on_add_button_clicked()
     }
     if (!valid_input)
     {
-        //QMessageBox messageBox;                                                                                          má eyða Ingvi
-        //messageBox.critical(0, "Error", errormessage);                                                                   má eyða Ingvi
-        //messageBox.setFixedSize(500,200);                                                                                má eyða Ingvi
-        if (lastname.length())                                                                                           //Edit Ingvi
-        ui->label_lastname->setText("<span style='color: #000000'>Last name:</span>");                                 //Edit Ingvi
-        if (!alive && death > birth)                                                                                     //Edit Ingvi
-        ui->label_dod->setText("<span style='color: #000000'>Date of death:</span>");                                 //Edit Ingvi
+        if (lastname.length())
+            ui->label_lastname->setText("<span style='color: #000000'>Last name:</span>");
+        if (!alive && death > birth)
+            ui->label_dod->setText("<span style='color: #000000'>Date of death:</span>");
     }
     else
     {

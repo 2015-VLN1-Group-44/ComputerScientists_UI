@@ -28,12 +28,6 @@ void Computer_service::edit_computer(Computers c)
     computer_repo.edit_remove(command);
 }
 
-//void Computer_service::edit_entry (QString column, QString argument, int id)
-//{
-//    QString command = QString(constants::COMPUTERS_EDIT.arg(column).arg(argument).arg(id));
-//    computer_repo.edit_remove(command);
-//}
-
 Computers Computer_service::from_id(int id)
 {
     QString command = QString(constants::COMPUTER_FROM_ID.arg(id));

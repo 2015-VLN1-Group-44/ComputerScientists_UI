@@ -40,15 +40,9 @@ void Edit_computer::on_save_button_clicked()
     {
         valid = false;
         errormessage = "Name empty, please try again";
-        ui->label_name->setText("<span style='color: #ff3366'>Please enter name>");               //Edit Ingvi
+        ui->label_name->setText("<span style='color: #ff3366'>Please enter name>");
     }
-    if (!valid)
-    {
-//        QMessageBox messageBox;
-//        messageBox.critical(0, "Error", errormessage);                                                           +++++++Þarf þetta að vera?
-//        messageBox.setFixedSize(500,200);
-    }
-    else
+    if (valid)
     {
         computer_service.edit_computer(temp);
         this->done(0);

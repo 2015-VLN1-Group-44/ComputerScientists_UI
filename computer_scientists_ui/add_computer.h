@@ -21,8 +21,6 @@ private slots:
     void on_add_button_clicked();
     void on_cancel_button_clicked();
 
-    // void on_check_was_built_toggled(bool checked);
-
 private:
     Ui::Add_computer *ui;
     Computer_service computer_service;

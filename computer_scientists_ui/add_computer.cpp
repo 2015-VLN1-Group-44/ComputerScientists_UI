@@ -29,16 +29,9 @@ void Add_computer::on_add_button_clicked()
     if (!name.length())
     {
         valid = false;
-        //errormessage = "Name empty, please try again";                                                    ******má eyða
         ui->label_name->setText("<span style='color: #ff3366'>Please enter name</span>");
     }
-    if (!valid)
-    {
-//        QMessageBox messageBox;
-//        messageBox.critical(0, "Error", errormessage);                                                    ****Þarf þetta að vera?
-//        messageBox.setFixedSize(500,200);
-    }
-    else
+    if (valid)
     {
         computer_service.add_computer_db(temp);
         this->done(0);
@@ -49,15 +42,3 @@ void Add_computer::on_cancel_button_clicked()
 {
     this->done(-1);
 }
-
-//void Add_computer::on_check_was_built_toggled(bool checked)
-//{
-//    if (!checked)
-//    {
-//        ui->year_edit->setEnabled(false);
-//    }
-//    else
-//    {
-//        ui->year_edit->setEnabled(true);
-//    }
-//}
