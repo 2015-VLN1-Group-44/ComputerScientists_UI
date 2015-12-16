@@ -29,13 +29,14 @@ void Add_computer::on_add_button_clicked()
     if (!name.length())
     {
         valid = false;
-        errormessage = "Name empty, please try again";
+        //errormessage = "Name empty, please try again";                                                    ******má eyða
+        ui->label_name->setText("<span style='color: #ff3366'>Please enter name</span>");
     }
     if (!valid)
     {
-        QMessageBox messageBox;
-        messageBox.critical(0, "Error", errormessage);
-        messageBox.setFixedSize(500,200);
+//        QMessageBox messageBox;
+//        messageBox.critical(0, "Error", errormessage);                                                    ****Þarf þetta að vera?
+//        messageBox.setFixedSize(500,200);
     }
     else
     {

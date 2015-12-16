@@ -55,11 +55,13 @@ void Edit_scientist::on_save_edit_button_clicked()
     }
     if (!alive && death < birth)
     {
-        errormessage = "Date of death before date of birth. Please correct.";
+        //errormessage = "Date of death before date of birth. Please correct.";                                             ----------Má eyða
+        ui->label_dod->setText("<span style='color: #ff3366'>Date of death before date of birth. Please correct.</span>");               //Edit Ingvi
     }
     else if (!lastname.length())
     {
-        errormessage = "No last name entered. Please correct";
+        //errormessage = "No last name entered. Please correct";                                        -----------------------Má eyða
+        ui->label_lastname->setText("<span style='color: #ff3366'>Please enter last name</span>");               //Edit Ingvi
     }
     else
     {
@@ -67,9 +69,13 @@ void Edit_scientist::on_save_edit_button_clicked()
     }
     if (!valid_input)
     {
-        QMessageBox messageBox;
-        messageBox.critical(0, "Error", errormessage);
-        messageBox.setFixedSize(500,200);
+//        QMessageBox messageBox;
+//        messageBox.critical(0, "Error", errormessage);                                                    --------------------má eyða
+//        messageBox.setFixedSize(500,200);
+        if (lastname.length())                                                                                           //Edit Ingvi
+        ui->label_lastname->setText("<span style='color: #000000'>Last name:</span>");                                 //Edit Ingvi
+        if (!alive && death > birth)                                                                                     //Edit Ingvi
+        ui->label_dod->setText("<span style='color: #000000'>Date of death:</span>");                                 //Edit Ingvi
     }
     else
     {
