@@ -20,7 +20,6 @@ public:
 
 private slots:
     void on_save_button_clicked();
-
     void on_cancel_button_clicked();
 
 private:

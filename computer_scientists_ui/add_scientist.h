@@ -19,10 +19,8 @@ public:
     ~Add_scientist();
 
 private slots:
-    void on_add_button_clicked();
-    
+    void on_add_button_clicked(); 
     void on_cancel_button_clicked();
-
     void on_living_toggled(bool checked);
 
 private:

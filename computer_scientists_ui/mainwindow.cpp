@@ -150,6 +150,13 @@ void MainWindow::display_connected_scientists()
         ui->table_connected_scientists->setItem(i, 1, new QTableWidgetItem(id));
     }
     ui->table_connected_scientists->setColumnHidden(1, true);
+    if (!connected_scientists.size())
+    {
+        ui->table_connected_scientists->setRowCount(1);
+        QString empty = "No connected scientists";
+        ui->table_connected_scientists->setItem(0, 0, new QTableWidgetItem(empty));
+        ui->table_connected_scientists->setItem(0, 1, new QTableWidgetItem(-1));
+    }
 }
 
 
