@@ -61,7 +61,7 @@ void Edit_scientist::on_save_edit_button_clicked()
     else if (!lastname.length())
     {
         //errormessage = "No last name entered. Please correct";                                        -----------------------Má eyða
-        ui->label_lastname->setText("<span style='color: #ff3366'>Please enter lastname</span>");               //Edit Ingvi
+        ui->label_lastname->setText("<span style='color: #ff3366'>Please enter last name</span>");               //Edit Ingvi
     }
     else
     {
