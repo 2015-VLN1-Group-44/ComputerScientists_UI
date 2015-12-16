@@ -56,8 +56,8 @@ void Add_scientist::on_add_button_clicked()
 //    }
     else if (!lastname.length())
     {
-        //errormessage = "No last name entered. Please correct";                                                            má eyða Ingvi
-        ui->label_lastname->setText("<span style='color: #ff3366'>No last name entered. Please correct</span>");               //Edit Ingvi Muna að breyta label_2 i label_lastname
+        //errormessage = "No last name entered. Please correct";                                                     --------------- má eyða Ingvi
+        ui->label_lastname->setText("<span style='color: #ff3366'>Please enter lastname</span>");               //Edit Ingvi Muna að breyta label_2 i label_lastname
     }
     else
     {

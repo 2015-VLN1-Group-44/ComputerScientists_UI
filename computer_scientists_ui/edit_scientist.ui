@@ -27,7 +27,7 @@
       <widget class="QLineEdit" name="edit_first"/>
      </item>
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="label_lastname">
        <property name="text">
         <string>&lt;span style='color:#ff3366'&gt;*&lt;/span&gt; Last name:</string>
        </property>
@@ -58,7 +58,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="label_dod">
        <property name="text">
         <string>Date of death:</string>
        </property>
